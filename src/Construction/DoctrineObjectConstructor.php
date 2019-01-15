@@ -9,7 +9,7 @@ use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Exception\InvalidArgumentException;
 use JMS\Serializer\Exception\ObjectConstructionException;
 use JMS\Serializer\Metadata\ClassMetadata;
-use JMS\Serializer\Visitor\DeserializationVisitorInterface;
+use JMS\Serializer\VisitorInterface;
 
 /**
  * Doctrine object constructor for new (or existing) objects during deserialization.
@@ -48,7 +48,7 @@ final class DoctrineObjectConstructor implements ObjectConstructorInterface
     /**
      * {@inheritdoc}
      */
-    public function construct(DeserializationVisitorInterface $visitor, ClassMetadata $metadata, $data, array $type, DeserializationContext $context): ?object
+    public function construct(VisitorInterface $visitor, ClassMetadata $metadata, $data, array $type, DeserializationContext $context): ?object
     {
         // Locate possible ObjectManager
         $objectManager = $this->managerRegistry->getManagerForClass($metadata->name);

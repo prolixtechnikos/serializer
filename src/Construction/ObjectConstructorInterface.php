@@ -7,6 +7,7 @@ namespace JMS\Serializer\Construction;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Visitor\DeserializationVisitorInterface;
+use JMS\Serializer\VisitorInterface;
 
 /**
  * Implementations of this interface construct new objects during deserialization.
@@ -24,5 +25,5 @@ interface ObjectConstructorInterface
      * @param mixed $data
      * @param array $type ["name" => string, "params" => array]
      */
-    public function construct(DeserializationVisitorInterface $visitor, ClassMetadata $metadata, $data, array $type, DeserializationContext $context): ?object;
+    public function construct(VisitorInterface $visitor, ClassMetadata $metadata, $data, array $type, DeserializationContext $context);
 }

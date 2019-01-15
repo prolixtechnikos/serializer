@@ -7,7 +7,7 @@ namespace JMS\Serializer\Construction;
 use Doctrine\Instantiator\Instantiator;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Metadata\ClassMetadata;
-use JMS\Serializer\Visitor\DeserializationVisitorInterface;
+use JMS\Serializer\VisitorInterface;
 
 final class UnserializeObjectConstructor implements ObjectConstructorInterface
 {
@@ -17,7 +17,7 @@ final class UnserializeObjectConstructor implements ObjectConstructorInterface
     /**
      * {@inheritdoc}
      */
-    public function construct(DeserializationVisitorInterface $visitor, ClassMetadata $metadata, $data, array $type, DeserializationContext $context): ?object
+    public function construct(VisitorInterface $visitor, ClassMetadata $metadata, $data, array $type, DeserializationContext $context): ?object
     {
         return $this->getInstantiator()->instantiate($metadata->name);
     }
