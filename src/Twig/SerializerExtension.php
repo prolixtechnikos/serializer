@@ -7,6 +7,8 @@ namespace JMS\Serializer\Twig;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * Serializer helper twig extension
@@ -43,7 +45,7 @@ class SerializerExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('serialize', [$this, 'serialize']),
+            new TwigFilter('serialize', [$this, 'serialize']),
         ];
     }
 
@@ -55,7 +57,7 @@ class SerializerExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('serialization_context', '\JMS\Serializer\SerializationContext::create'),
+            new TwigFunction('serialization_context', '\JMS\Serializer\SerializationContext::create'),
         ];
     }
 
