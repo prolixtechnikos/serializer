@@ -6,13 +6,14 @@ namespace JMS\Serializer\Twig;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
+use Twig\Extension\AbstractExtension;
 
 /**
  * Serializer helper twig extension
  *
  * Basically provides access to JMSSerializer from Twig
  */
-class SerializerExtension extends \Twig_Extension
+class SerializerExtension extends AbstractExtension
 {
     /**
      * @var SerializerInterface
