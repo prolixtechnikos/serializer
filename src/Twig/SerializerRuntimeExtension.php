@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 namespace JMS\Serializer\Twig;
+use Twig\Extension\AbstractExtension;
 
 /**
  * @author Asmir Mustafic <goetas@gmail.com>
  */
-final class SerializerRuntimeExtension extends \Twig_Extension
+final class SerializerRuntimeExtension extends AbstractExtension
 {
     /**
      * @return string
